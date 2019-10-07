@@ -1,0 +1,31 @@
+var app = (()=>{
+	return{
+		init : (ctx)=>{
+			
+		}
+	};
+})();
+var member = (()=>{
+	var _dName,_deptNo,_eName,empNo,_dName,_job,_mgr,_hireDate,_comm;
+	var setEmpNo = (empNo)=>{this._empNo = empNo;}
+	var setEName = (eName)=>{this._eName = eName;}
+	var setDName = (dName)=>{this._dName = dName;}
+	var getEmpNo = ()=>{return this._setEmpNo;}
+	var getEName = ()=>{return this._setEName;}
+	var getDName = ()=>{return this._setDName;}
+	return{
+		setEmpNo : setEmpNo,setEName : setEName,setDName : setDName,
+		getEmpNo : getEmpNo,getEName : getEName,getDName : getDName
+	};
+})();
+
+var memberService = (()=>{
+	return{
+		login : (ctx)=>{
+			$('login_btn').click(()=>{
+				alert('나오나?');
+			});
+		}
+		
+	};
+})();

@@ -1,0 +1,32 @@
+package com.web.team1.command;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.web.team1.pool.Constants;
+import com.web.team1.serviceimpl.EmployeeServiceImpl;
+
+public class SearchCommand extends Command {
+
+	public SearchCommand(HttpServletRequest request) {
+		 setRequest(request);
+		  setPage("page");
+	   	  request.setAttribute("page", request.getParameter("page"));
+		request.getParameter("deptNo");
+		request.getParameter("dName");
+		request.getParameter("empNo");
+		request.getParameter("eName");
+		request.getParameter("job");
+		request.getParameter("mgr");
+		request.getParameter("hireDate");
+		request.getParameter("sal");
+		request.getParameter("comm");
+	}
+	public void execute() {
+//		 request.setAttribute("position", PlayerServiceImpl.getInstance().frindPositions());
+		request.setAttribute("login", EmployeeServiceImpl.getInstance().login(param);
+		request.setAttribute("page", request.getParameter("page"));	
+		this.view = String.format(Constants.DOUBLE_PATH,"facade","main");
+		
+//		super.execute();
+	}
+}

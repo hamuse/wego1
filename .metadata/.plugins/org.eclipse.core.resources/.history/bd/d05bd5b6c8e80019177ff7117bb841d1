@@ -1,0 +1,65 @@
+var app = (()=>{
+	return{
+		init : (ctx)=>{
+			btn.moveJoin(ctx);
+			btn.backpage(ctx);
+			btn.join(ctx);
+			btn.login(ctx);
+		}
+	};
+})();
+var member = (()=>{
+	var _dName,_deptNo,_eName,empNo,_dName,_job,_mgr,_hireDate,_comm;
+	var setEmpNo = (empNo)=>{this._empNo = empNo;}
+	var setEName = (eName)=>{this._eName = eName;}
+	var setDName = (dName)=>{this._dName = dName;}
+	var getEmpNo = ()=>{return this._setEmpNo;}
+	var getEName = ()=>{return this._setEName;}
+	var getDName = ()=>{return this._setDName;}
+	return{
+		setEmpNo : setEmpNo,setEName : setEName,setDName : setDName,
+		getEmpNo : getEmpNo,getEName : getEName,getDName : getDName
+	};
+})();
+var btn = (()=>{
+	return{
+		login : (ctx)=>{
+			$('#login_btn').click(()=>{
+				if($('d_Name').val()===''||$('userName').val()===''||
+						$('userPw').val()===''){
+					alert('필수값이 없습니다')}
+					else{
+						alert('입력한 아이디 값: '+$('#username').val());
+						$('#login_form')
+						$('#login_form').attr('action', ctx+'/login.do' );
+						$('#login_form').attr('method','POST');
+						$('#login_form').submit();	
+					}
+			});
+		},
+		join: (ctx)=>{
+			$('#join_btn').click(()=>{
+				if($('#join_empno').val()==='' || 
+						$('#join_ename').val()===''){
+					alert('필수값이 없습니다.');
+				}else{
+					alert('입력한 아이디 값: '+$('#join_empno').val());
+					$('#join_form').attr('action', ctx+'/login.do');
+					$('#join_form').attr('method','POST');
+					$('#join_form').submit();	
+				}
+			});
+		},
+		moveJoin: (ctx)=>{
+			$('#join_btn').click(()=>{
+				alert('조인!!!!');
+				location.assign(ctx+'/login.do?action=move&page=join');
+			});
+		},
+		backpage: (ctx)=>{
+			$('#back_page').click(()=>{
+				location.assign(ctx+'/login.do?action=move&page=login');
+			});
+		}
+	};
+})();

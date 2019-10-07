@@ -1,0 +1,14 @@
+package com.web.team1.enums;
+
+public enum DBDriver {
+	ORACLE_DRIVER;
+	
+	@Override
+	public String toString() {
+		String driver = "";
+		switch(this){
+			
+		}
+		return super.toString();
+	}
+}

@@ -1,0 +1,12 @@
+package com.web.team1.factory;
+
+public class DatabaseFactory {
+	
+	public static Database createDatabase(String vendor) {}
+	Database db = null;
+	switch(DB.valuedf(vender)) {
+	
+	
+	}
+
+}

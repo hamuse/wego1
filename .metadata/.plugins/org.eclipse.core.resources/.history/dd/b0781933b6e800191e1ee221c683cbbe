@@ -1,0 +1,22 @@
+package com.web.team1.serviceimpl;
+
+import java.util.List;
+
+import com.company.web.DAOImpls.DepartmentDAOImpl;
+import com.company.web.service.DepartmentService;
+
+public class DepartmentServiceImpl implements DepartmentService {
+	private static DepartmentServiceImpl instance = new DepartmentServiceImpl();
+	public static DepartmentServiceImpl getInstance() {
+		return instance;
+	}
+	private DepartmentServiceImpl() {}
+	
+	
+	@Override
+	public List<String> findDName() {
+		
+		return DepartmentDAOImpl.getInstance().selectDName();
+	}
+
+}

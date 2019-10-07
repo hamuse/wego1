@@ -1,0 +1,25 @@
+package com.web.team1.serviceimpl;
+
+import com.web.team1.domains.EmployeeBean;
+
+public class EmployeeServiceImpl implements EmployeeService{
+	private static EmployeeServiceImpl instance = new EmployeeServiceImpl();
+	public static EmployeeServiceImpl getInstance() {
+		return instance;
+	}
+	
+	private EmployeeServiceImpl() {}
+
+	@Override
+	public boolean join(EmployeeBean param) {
+		return EmployeeDAOImpl.getInstance().insertEmployee(param);
+		
+	}
+
+	@Override
+	public EmployeeBean login(EmployeeBean param) {
+
+		return EmployeeDAOImpl.getInstance().selectByempNoeName(param);
+	}
+
+}

@@ -1,0 +1,6 @@
+package com.web.team1.dao;
+
+public interface EmployeeDOA {
+	public boolean insertEmployee(EmployeeBean param);
+	public EmployeeBean selectByempNoeName(EmployeeBean param);
+}

@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<h3>마이페이지 ${dName}</h3>
+<h2>DEPTNO ${deptNo}</h2>
+<h2>ENAME ${eName}</h2>
+<h2>EMPNO ${empNo}</h2>
+<h2>DNAME ${dName}</h2>
+<h2>JOB ${job}</h2>
+<h2>MGR ${mgr}</h2>
+<h2>HIREDATE  ${hireDate}</h2>
+<h2>COMM   ${comm}</h2>
+<div>
+<h2><a id="back_page" href="#">뒤로 돌아가기</a></h2>
+</div>
+<script>
+app.init('${ctx}');
+</script>

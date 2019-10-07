@@ -1,0 +1,5 @@
+package com.web.team1.services;
+
+public interface DepartmentService {
+	public List<String> findDName();
+}

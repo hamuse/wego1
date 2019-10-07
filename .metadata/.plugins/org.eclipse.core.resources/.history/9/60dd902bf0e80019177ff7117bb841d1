@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+
+
+<form id="login_form">
+<div id="login_tab">
+    <div id="login_tab_item_1">
+    부서명 : <input id="d_Name" class="input_text" type="text" name="dName"/>
+    </div>
+    <div id="login_tab_item_2">
+    사용자ID : <input id="userName" class="input_text" type="text" name="empNo"/>
+    </div>
+    <div id="login_tab_item_3">
+    비밀번호 : <input id="userPw" class="input_text" type="text" name="eName"/>
+    </div>
+    <div></div>
+</div>
+    <input type="hidden" name="action" value="login" />
+    <input type="hidden" name="page" value="mypage" />
+
+    <input id="login_btn" type="button" value="로그인"/>
+    <input id="join_btn" type="button" value="회원가입"/>
+
+</form>
+
+
+<script>
+/*$('#login_btn').click(function(){
+    alert('쫌!!!!떠라!!!!');
+}); */
+app.init('${ctx}');
+</script>

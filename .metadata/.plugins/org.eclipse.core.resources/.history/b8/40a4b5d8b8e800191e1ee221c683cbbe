@@ -1,0 +1,22 @@
+package com.web.team1.command;
+
+public class SearchCommand extends Command {
+
+	public SearchCommand(HttpServletRequest request) {
+	
+		request.getParameter("deptNo");
+		request.getParameter("dName");
+		request.getParameter("empNo");
+		request.getParameter("eName");
+		request.getParameter("job");
+		request.getParameter("mgr");
+		request.getParameter("hireDate");
+		request.getParameter("sal");
+		request.getParameter("comm");
+		
+	}
+	@Override
+	public void execute() {
+		super.execute();
+	}
+}

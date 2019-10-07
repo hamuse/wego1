@@ -1,0 +1,6 @@
+package com.web.team1.pool;
+
+public class Constants {
+	public final static String 
+		DOUBLE_PATH = "/WEB-INF/views/%s/%s.jsp";
+}

@@ -1,0 +1,5 @@
+package com.web.team1.factory;
+
+public class DatabaseFactory {
+
+}

@@ -1,0 +1,40 @@
+var app= (()=>{
+    return{
+        init : (ctx)=>{
+            $('#login_btn').click(()=>{
+                alert('로그인!!!!!!');
+                location.assign(ctx+'/login.do?action=login&page=main');
+            });
+            $('#join_btn').click(()=>{
+                alert('회원가입 이동');
+                location.assign(ctx+'/login.do?action=move&page=join');
+            });
+            login: (ctx)=>{
+                $('#login_btn').click(()=>{        
+                    if($('#username').val()==='' ||
+                            $('#solar').val()===''){
+                        alert('필수값이 없습니다.');
+                    }else{
+                        alert('입력한 아이디 값 : '+$('#username').val());
+                        $('#login_form').attr('action', ctx+'/player.do');
+                        $('#login_form').attr('method','POST');
+                        $('#login_form').submit();
+                            
+                    }
+        }
+            
+    };
+})();
+var member = (()=>{
+    var _dName,_deptNo,_eName,_empNo,_dName,_job,_mgr,_hireDate,_comm;
+    var setEmpNo = (empNo)=>{this._empNo = empNo;}
+    var setEName = (eName)=>{this._eName = eName;}
+    var setDName = (dName)=>{this._dName = dName;}
+    var getEmpNo = ()=>{return this._setEmpNo;}
+    var getEName = ()=>{return this._setEName;}
+    var getDName = ()=>{return this._setDName;}
+    return{
+        setEmpNo : setEmpNo,setEName : setEName,setDName : setDName,
+        getEmpNo : getEmpNo,getEName : getEName,getDName : getDName
+    };
+})();

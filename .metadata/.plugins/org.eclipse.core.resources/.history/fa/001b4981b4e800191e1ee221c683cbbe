@@ -1,0 +1,5 @@
+package com.company.web.serviceImpls;
+
+public class DepartmentServiceImpl {
+
+}

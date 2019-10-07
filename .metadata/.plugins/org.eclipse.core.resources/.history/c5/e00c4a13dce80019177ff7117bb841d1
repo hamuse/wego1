@@ -1,0 +1,86 @@
+package com.web.team1.daoimpl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.web.team1.dao.EmployeeDAO;
+import com.web.team1.domains.DepartmentBean;
+import com.web.team1.domains.EmployeeBean;
+import com.web.team1.factory.DatabaseFactory;
+import com.web.team1.pool.Constants;
+
+public class EmployeeDAOImpl implements EmployeeDAO{
+	private static EmployeeDAOImpl instance = new EmployeeDAOImpl();
+	public static EmployeeDAOImpl getInstance() {
+		return instance;
+	}
+	private EmployeeDAOImpl() {}
+	@Override
+	public boolean insertEmployee(EmployeeBean param) {
+	
+		boolean flag = false;
+		try {
+			String sql = "INSERT INTO EMP(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO)\r\n" + 
+					"VALUES(?,?,?,?,to_date('?','dd-mm-yyyy'),?,?,?)";
+			System.out.println("다오 sql"+sql);
+
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection().prepareStatement(sql);
+			System.out.println("다오 sql"+sql);
+
+			stmt.setString(1, param.getEmpNo());
+			stmt.setString(2, param.getEName());
+			stmt.setString(3, param.getJob());
+			stmt.setString(4, param.getMgr());
+			stmt.setString(5, param.getHireDate());
+			stmt.setString(6, param.getSal());
+			stmt.setString(7, param.getComm());
+			stmt.setString(8, param.getDeptNo());
+			System.out.println("다오 sql"+sql);
+			int rs = stmt.executeUpdate();
+			flag =(rs == 1) ;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	@Override
+	public EmployeeBean selectByempNoeName(EmployeeBean param, DepartmentBean db) {
+		EmployeeBean employee = null;
+		
+		try {
+			String sql = "SELECT * FROM EMP\r\n" + 
+					"WHERE EMPNO LIKE ?\r\n" + 
+					"AND ENAME LIKE ?\r\n" + 
+					"AND DEPTNO LIKE (SELECT DEPTNO FROM DEPT WHERE DNAME LIKE ?)";
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection().prepareStatement(sql);
+			stmt.setString(1, param.getEmpNo());
+			stmt.setString(2, param.getEName());
+			stmt.setString(3, db.getDName());
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				employee = new EmployeeBean();
+				employee.setComm(rs.getString("COMM"));
+				employee.setDeptNo(rs.getString("DEPTNO"));
+				employee.setEmpNo(rs.getString("EMPNO"));
+				employee.setEName(rs.getString("ENAME"));
+				employee.setHireDate(rs.getString("HIREDATE"));
+				employee.setJob(rs.getString("JOB"));
+				employee.setMgr(rs.getString("MGR"));
+				employee.setSal(rs.getString("SAL"));
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return employee; 
+	}
+
+}

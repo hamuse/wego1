@@ -1,0 +1,8 @@
+package com.web.team1.serviceimpl;
+
+
+package com.company.web.serviceImpls;
+
+public class DepartmentServiceImpl {
+
+}
